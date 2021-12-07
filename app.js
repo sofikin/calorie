@@ -20,6 +20,9 @@ const ItemCtrl = (function (){
         total: 0
     }
     return{
+        getItems: function (){
+            return data.items
+        },
         logData: function (){
             return data
         }
@@ -28,7 +31,7 @@ const ItemCtrl = (function (){
 
 // UI Controller
 const UICtrl = (function (){
-    console.log("UICtrl")
+
 })();
 
 // App Controller
@@ -36,6 +39,9 @@ const App = (function (ItemCtrl, UICtrl){
     return {
         init: function (){
             console.log("Initializing App")
+            // fetch items from data structure
+            const items = ItemCtrl.getItems()
+            console.log(items)
         }
     }
 })(ItemCtrl, UICtrl);
